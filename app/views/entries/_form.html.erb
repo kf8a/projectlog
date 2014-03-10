@@ -15,7 +15,7 @@
     <div class="checkbox-inline">
       <% ActsAsTaggableOn::Tag.all.each do |tag| %>
       <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1" value="option1">
+        <%= f.check_box :category_list, {multiple: true}, tag.name, nil %>
           <%= tag.name %>
         </label>
       <% end %>

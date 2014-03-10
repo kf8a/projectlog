@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   before_filter :authenticate_user!, except: "index"
 
   def index
-    @entries = Entry.text_search(params[:query]).order('date desc').page(params[:page]).per(200)
+    @entries = Entry.text_search(params[:query]).order('date desc').order('updated_at desc').page(params[:page]).per(200)
     @entry = Entry.new
     @entry.date = Date.today
   end
@@ -48,6 +48,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:date, :note, :category_list)
+    params.require(:entry).permit(:date, :note, :category_list => [])
   end
 end
