@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :tag, :tag_cloud]
 
   def index
-    @entries = Entry.text_search(params[:query]).order('date desc').order('updated_at desc').page(params[:page]).per(200)
+    @entries = Entry.text_search(params[:query]).order('date desc').order('updated_at desc').page(params[:page]).per(300)
     @entry = Entry.new
     @entry.date = Date.today
   end
