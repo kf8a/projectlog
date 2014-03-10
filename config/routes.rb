@@ -1,6 +1,11 @@
 Projectlog::Application.routes.draw do
   devise_for :users
-  resources :entries
+  resources :entries do
+    member do
+      get 'tag'
+    end
+  end
+
 
   resources :tags, only: :index
 

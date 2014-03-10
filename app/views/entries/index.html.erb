@@ -1,11 +1,18 @@
 <% if user_signed_in? %>
-<%= form_for :entry, html: {class: "form", role: "form"}  do |f| %>
-  <%= render partial: "form", locals: {f: f} %>
-  <%= f.submit "Create", class: "btn btn-primary pull-down" %>
+  <%= form_for :entry, html: {class: "form", role: "form"}  do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
+    <%= f.submit "Create", class: "btn btn-primary pull-down" %>
+  <% end %>
 <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-4 pull-right border">
+  <% tag_cloud(Entry.tag_counts_on(:categories), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name,  { :action => :tag, :id => tag.name},  :class => css_class %>
+    <% end %>
+  </div>
+</div>
 <div>
-<%= paginate @entries %>
-<%= render partial: "entry", collection: @entries %>
-<%= paginate @entries %>
+  <%= paginate @entries %>
+  <%= render partial: "entry", collection: @entries %>
+  <%= paginate @entries %>
 </div>

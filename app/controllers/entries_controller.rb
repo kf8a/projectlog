@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate_user!, except: "index"
+  before_filter :authenticate_user!, except: [:index, :tag, :tag_cloud]
 
   def index
     @entries = Entry.text_search(params[:query]).order('date desc').order('updated_at desc').page(params[:page]).per(200)
@@ -44,6 +44,14 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @entry.delete
     redirect_to entries_url
+  end
+
+
+  def tag
+    @entries = Entry.tagged_with(params[:id]).order('date desc'). order('updated_at desc').page(params[:page]).per(200)
+    @entry = Entry.new
+    @entry.date = Date.today
+    render :index
   end
 
   private
