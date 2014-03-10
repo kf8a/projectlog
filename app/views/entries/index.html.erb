@@ -1,0 +1,13 @@
+<h1>Projectlog</h1>
+<%= form_tag entries_path, method: :get, html: {class: "form", role: "form"} do %>
+  <p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<%= form_for :entry, html: {class: "form", role: "form"}  do |f| %>
+  <%= render partial: "form", locals: {f: f} %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
+<%= render partial: "entry", collection: @entries %>
