@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
 
   def self.text_search(query)
     if query.present?
-      where("note @@ :q", q: query)
+      where("to_char(date, 'YYYY-MM-DD') @@ :q or note @@ :q", q: query)
     else
       scoped
     end
