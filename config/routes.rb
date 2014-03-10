@@ -6,8 +6,5 @@ Projectlog::Application.routes.draw do
     end
   end
 
-
-  resources :tags, only: :index
-
   root :to => "entries#index"
 end
