@@ -33,6 +33,8 @@ gem 'devise'
 # use markdown
 gem 'redcarpet'
 
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

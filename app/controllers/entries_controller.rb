@@ -1,7 +1,8 @@
 class EntriesController < ApplicationController
+  before_filter :authenticate_user!, except: "index"
 
   def index
-    @entries = Entry.text_search(params[:query]).order('date desc').all
+    @entries = Entry.text_search(params[:query]).order('date desc').page(params[:page]).per(200)
     @entry = Entry.new
     @entry.date = Date.today
   end
@@ -15,6 +16,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
+    @entry.author = current_user.name
     if @entry.save
       flash[:notice] = "Entry was successfully created" if @entry.save
       redirect_to entries_url
@@ -29,6 +31,7 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
+    @entry.author = current_user.name
     @entry.update_attributes(entry_params)
     if @entry.save
       redirect_to entries_url

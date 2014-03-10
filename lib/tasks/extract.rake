@@ -29,7 +29,7 @@ task extract: :environment do
     entry.category_list.add new_tags
     entry.save
     i += 1
-    break if i > 100
+    # break if i > 100
   end
 
 end
