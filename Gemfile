@@ -52,7 +52,12 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rails'
+end
 
 gem 'dotenv-rails'
 
