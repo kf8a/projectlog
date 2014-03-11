@@ -3,21 +3,18 @@ require 'test_helper'
 class EntryTest < ActiveSupport::TestCase
 
   test 'not valid without note' do
-    assert Entry.new(date: Date.today, author: 'test').valid? == false
+    refute Entry.new(date: Date.today, author: 'test').valid?, "Not valid without note"
   end
 
   test "not valid without author" do
-    assert Entry.new(date: Date.today, note: "something").valid? == false
+    refute Entry.new(date: Date.today, note: "something").valid?, "Not valid without author"
   end
 
   test "not valid without date" do
-    assert Entry.new(note: "something", author: "test").valid? == false
+    refute Entry.new(note: "something", author: "test").valid?, "Not valid without date"
   end
 
   test 'text search' do 
-    assert Entry.text_search('something').to_sql == "Select * from entries where date @@ 'something' or note @@ 'something"
+    assert Entry.text_search('something').to_sql, "should return something"
   end
-  # test "the truth" do
-  #   assert true
-  # end
 end
