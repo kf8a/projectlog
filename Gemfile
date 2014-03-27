@@ -6,6 +6,9 @@ gem 'rails', '4.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# full text search on postgresql
+gem 'textacular', '~> 3.0'
+
 #include sequel for the extraction from old projectlog
 gem 'sequel' 
 

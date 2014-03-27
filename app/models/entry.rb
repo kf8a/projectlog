@@ -1,11 +1,16 @@
+require 'textacular/searchable'
+
 class Entry < ActiveRecord::Base
   acts_as_taggable_on :categories
 
   validates_presence_of :note, :date, :author
 
+  extend Searchable(:date, :note, :author)
+
   def self.text_search(query)
     if query.present?
-      where("to_char(date, 'YYYY-MM-DD') @@ :q or note @@ :q", q: query)
+      words = query.split(/\s/)
+      advanced_search words.join('|')
     else
       all
     end
