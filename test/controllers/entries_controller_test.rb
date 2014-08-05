@@ -31,7 +31,7 @@ class EntriesControllerTest < ActionController::TestCase
   test "authenticated should get create" do
     @controller.stub(:signed_in?).and_return(true)
     post :create
-    assert_response :success
+    assert_redirected_to '/entries'
   end
 
   test "authenticated should get edit" do
