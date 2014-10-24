@@ -1,10 +1,13 @@
 class CategoriesController < ApplicationController
+  before_filter :authenticate_user! #, except: [:index, :tag, :tag_cloud]
   before_action :set_category, only: [:edit, :update, :destroy]
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @entries = Entry.tagged_with(params[:id]).text_search(params[:query]).order('date desc'). order('created_at desc').page(params[:page]).per(200)
+    @entries = Entry.tagged_with(params[:id]).text_search(params[:query])
+                    .order('date desc'). order('created_at desc')
+                    .page(params[:page]).per(200)
   end
 
   # GET /categories/new
@@ -25,7 +28,7 @@ class CategoriesController < ApplicationController
       if @tag.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to 'new' }
       end
     end
   end
