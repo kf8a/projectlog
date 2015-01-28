@@ -1,4 +1,4 @@
-json.array! @entries do |entry|
+json.entries @entries do |entry|
   json.id entry.id
   json.date entry.date
   json.note entry.note
