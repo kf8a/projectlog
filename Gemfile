@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -13,6 +13,8 @@ gem 'textacular'
 gem 'sequel' 
 
 gem 'acts-as-taggable-on'
+
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
