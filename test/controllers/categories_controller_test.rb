@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
 
   def setup
-     ActsAsTaggableOn::Tag.create(name: 'test')
+     ActsAsTaggableOn::Tag.create(id: 1, name: 'test')
   end
 
   test "anonymous should not get new" do

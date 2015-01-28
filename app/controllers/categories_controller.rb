@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user! #, except: [:index, :tag, :tag_cloud]
+  before_filter :authenticate_user!, except: [:show ]
   before_action :set_category, only: [:edit, :update, :destroy]
 
   # GET /categories/1
