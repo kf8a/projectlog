@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   validates_presence_of :note, :date, :author
 
+  mount_uploaders :attachments, AttachmentUploader
+
   extend Searchable(:date, :note, :author)
 
   def self.text_search(query)
