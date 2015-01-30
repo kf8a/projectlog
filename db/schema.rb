@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150128195651) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attachments",             default: [], array: true
+    t.json     "attachments"
   end
 
   create_table "taggings", force: :cascade do |t|
