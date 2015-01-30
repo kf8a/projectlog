@@ -4,22 +4,21 @@
     <%= f.text_field :date, class: "form-control" %>
   </div>
 </div>
-<div class="row">
-  <div class="form-group col-md-12">
-    <label>Note:</label>
-    <%= f.text_area :note, placeholder: "what happened? You can use markdown here. google 'markdown cheatsheet' for more info.", rows: "10", class: "form-control" %>
-    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>
-  </div>
+<div class="row form-group col-md-12">
+  <label>Note:</label>
+  <%= f.text_area :note, placeholder: "what happened? You can use markdown here. google 'markdown cheatsheet' for more info.", rows: "10", class: "form-control" %>
+  <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>
 </div>
-<div class="row">
-  <div class="form-group col-md-12">
-    <div class="checkbox-inline">
-      <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+<div class="row form-group col-md-12">
+  <div class="checkbox-inline">
+    <% ActsAsTaggableOn::Tag.all.each do |tag| %>
       <label class="checkbox-inline">
         <%= f.check_box :category_list, {multiple: true}, tag.name, nil %>
-          <%= tag.name %>
-        </label>
-      <% end %>
-    </div>
+        <%= tag.name %>
+      </label>
+    <% end %>
   </div>
+</div>
+<div class="row form-group col-md-12">
+  <%= f.file_field :attachments, multiple: true, class: 'btn btn-default btn-file' %>
 </div>
