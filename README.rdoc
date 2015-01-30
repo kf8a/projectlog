@@ -1,5 +1,0 @@
-== README
-
-A simple project log.
-
-* Ruby version 2.0 or higher
