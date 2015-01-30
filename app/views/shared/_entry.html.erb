@@ -8,6 +8,11 @@
       <div class="col-md-10">
         <%=markdown(entry.note).html_safe %>
       </div>
+      <div class="col-md-2">
+        <% entry.attachments.each do |attachment| %>
+          <%= link_to attachment.file.filename, attachment.url %>
+        <% end %>
+      </div>
     </div>
       <div class="row">
         <div class="col-md-10">

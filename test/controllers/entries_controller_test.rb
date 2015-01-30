@@ -65,4 +65,10 @@ class EntriesControllerTest < ActionController::TestCase
     delete :destroy, id: @entry
     assert_redirected_to entries_path
   end
+
+  test 'file upload' do
+    sign_in @user
+    post :create,  entry: {date: Date.today, note: 'Something to say', attachments: fixture_file_upload("test.txt")}
+    assert_redirected_to entries_path
+  end
 end

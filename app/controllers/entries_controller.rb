@@ -48,6 +48,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:date, :note, :category_list => [])
+    params.require(:entry).permit(:date, :note, :category_list => [], :attachments => [])
   end
 end
