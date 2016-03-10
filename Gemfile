@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '~> 4.2.5'
+
+gem 'rake', '< 11.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -14,7 +16,7 @@ gem 'sequel'
 
 gem 'acts-as-taggable-on'
 
-gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'carrierwave' , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
 gem 'backbone-on-rails'
 
