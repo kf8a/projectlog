@@ -262,7 +262,6 @@ DEPENDENCIES
   kaminari-bootstrap
   pg
   rails (~> 4.2.6)
-  rake (< 11.0)
   redcarpet
   sass-rails
   sdoc
