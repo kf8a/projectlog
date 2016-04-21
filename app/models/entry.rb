@@ -3,7 +3,7 @@ require 'textacular/searchable'
 class Entry < ActiveRecord::Base
   acts_as_taggable_on :categories
 
-  validates :note, :date, :author
+  validates :note, :date, :author, presence: true
 
   mount_uploaders :attachments, AttachmentUploader
 
