@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!, except: [:show ]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_category, only: [:edit, :update, :destroy]
 
   # GET /categories/1
@@ -7,7 +7,8 @@ class CategoriesController < ApplicationController
   def show
     @entries = Entry.tagged_with(params[:id]).text_search(params[:query])
                     .order('date desc'). order('created_at desc')
-                    .page(params[:page]).per(200)
+                    .page(params[:page])
+                    .per(200)
   end
 
   # GET /categories/new
@@ -21,8 +22,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-
-    @tag =  ActsAsTaggableOn::Tag.new(category_params)
+    @tag = ActsAsTaggableOn::Tag.new(category_params)
 
     respond_to do |format|
       if @tag.save
@@ -55,18 +55,23 @@ class CategoriesController < ApplicationController
   end
 
   def tag
-    @entries = Entry.tagged_with(params[:id]).order('date desc'). order('updated_at desc').page(params[:page]).per(200)
+    @entries = Entry.tagged_with(params[:id])
+                    .order('date desc')
+                    .order('updated_at desc')
+                    .page(params[:page])
+                    .per(200)
     render :index
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = ActsAsTaggableOn::Tag.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def category_params
-      params[:category]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = ActsAsTaggableOn::Tag.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def category_params
+    params[:category]
+  end
 end

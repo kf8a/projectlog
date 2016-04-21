@@ -1,17 +1,21 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :tag, :tag_cloud]
+  before_action :authenticate_user!, except: [:index, :tag, :tag_cloud]
 
   def index
-    @entries = Entry.text_search(params[:query]).order('date desc').order('updated_at desc').page(params[:page]).per(300)
+    @entries = Entry.text_search(params[:query])
+                    .order('date desc')
+                    .order('updated_at desc')
+                    .page(params[:page])
+                    .per(300)
     @entry = Entry.new
-    @entry.date = Date.today
+    @entry.date = Time.zone.today
   end
 
   def create
     @entry = Entry.new(entry_params)
     @entry.author = current_user.name
     if @entry.save
-      flash[:notice] = "Entry was successfully created" if @entry.save
+      flash[:notice] = 'Entry was successfully created' if @entry.save
       redirect_to entries_url
     else
       render :new
@@ -38,16 +42,22 @@ class EntriesController < ApplicationController
     redirect_to entries_url
   end
 
-
   def tag
-    @entries = Entry.tagged_with(params[:id]).order('date desc'). order('updated_at desc').page(params[:page]).per(200)
+    @entries = Entry.tagged_with(params[:id])
+                    .order('date desc')
+                    .order('updated_at desc')
+                    .page(params[:page])
+                    .per(200)
     @entry = Entry.new
-    @entry.date = Date.today
+    @entry.date = Time.zone.today
     render :index
   end
 
   private
+
   def entry_params
-    params.require(:entry).permit(:date, :note, :category_list => [], :attachments => [])
+    params.require(:entry).permit(:date, :note,
+                                  category_list: [],
+                                  attachments: [])
   end
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
+# Attachement Uploaded uploads attachments
 class AttachmentUploader < CarrierWave::Uploader::Base
-
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -17,5 +17,4 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # def extension_white_list
   #   %w(jpg jpeg gif png)
   # end
-
 end
