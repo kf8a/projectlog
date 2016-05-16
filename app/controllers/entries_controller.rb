@@ -1,3 +1,4 @@
+# show log entries to the user
 class EntriesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :tag, :tag_cloud]
 

@@ -1,5 +1,6 @@
 require 'textacular/searchable'
 
+# an entry in the log usually just text
 class Entry < ActiveRecord::Base
   acts_as_taggable_on :categories
 

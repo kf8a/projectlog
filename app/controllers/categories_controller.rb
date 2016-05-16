@@ -1,3 +1,4 @@
+# show and edit categories
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_category, only: [:edit, :update, :destroy]

@@ -1,3 +1,4 @@
+# helper functions for the application view
 module ApplicationHelper
   def markdown(content)
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
