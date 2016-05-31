@@ -12,5 +12,5 @@ Projectlog::Application.routes.draw do
     end
   end
 
-  root :to => "entries#index"
+  root to: 'entries#index'
 end

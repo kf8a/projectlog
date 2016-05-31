@@ -24,31 +24,28 @@ set :scm, :git
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml .env}
+set :linked_files, %w(config/database.yml .env)
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_dirs, %w{tmp/pids tmp/cache tmp/sockets public/uploads}
+set :linked_dirs, %w(tmp/pids tmp/cache tmp/sockets public/uploads)
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :default_env, { path: '/opt/ruby/bin:$PATH' }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
-      invoke 'unicorn:restart'
+    invoke 'unicorn:restart'
   end
 
   after :publishing, :restart
 
-
   after :restart, :clear_cache do
-    #execute :rake, 'cache:clear'
+    # execute :rake, 'cache:clear'
     invoke 'unicorn:reload'
   end
-
 end

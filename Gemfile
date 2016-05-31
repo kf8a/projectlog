@@ -9,12 +9,9 @@ gem 'pg'
 # full text search on postgresql
 gem 'textacular'
 
-#include sequel for the extraction from old projectlog
-gem 'sequel' 
-
 gem 'acts-as-taggable-on'
 
-gem 'carrierwave' , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
 gem 'backbone-on-rails'
 
@@ -41,7 +38,8 @@ gem 'redcarpet'
 
 gem 'kaminari-bootstrap'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster.
+# Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
