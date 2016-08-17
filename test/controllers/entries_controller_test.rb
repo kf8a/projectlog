@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class EntriesControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 
   def setup
     @user = User.create(email: 'test@google.com',
@@ -28,49 +28,49 @@ class EntriesControllerTest < ActionController::TestCase
   end
 
   test 'anonymous should not get edit' do
-    get :edit, id: @entry
+    get :edit, params: { id: @entry }
     assert_redirected_to '/users/sign_in'
   end
 
   test 'anonoymous should not get update' do
-    patch :update, id: @entry
+    patch :update, params: { id: @entry }
     assert_redirected_to '/users/sign_in'
   end
 
   test 'anonymous should not get destroy' do
-    delete :destroy, id: @entry
+    delete :destroy, params: { id: @entry }
     assert_redirected_to '/users/sign_in'
   end
 
   test 'authenticated should get create' do
     sign_in @user
-    post :create,  entry: { date: Time.zone.today, note: 'Something to say' }
+    post :create, params: { entry: { date: Time.zone.today, note: 'Something to say' } }
     assert_redirected_to entries_path
   end
 
   test 'authenticated should get edit' do
     sign_in @user
-    get :edit, id: @entry
+    get :edit, params: { id: @entry }
     assert_response :success
   end
 
   test 'authenticated should get update' do
     sign_in @user
-    patch :update, id: @entry, entry: { note: 'Something new' }
+    patch :update, params: { id: @entry, entry: { note: 'Something new' } }
     assert_redirected_to entries_path
   end
 
   test 'authenticated should get destroy' do
     sign_in @user
-    delete :destroy, id: @entry
+    delete :destroy, params: { id: @entry }
     assert_redirected_to entries_path
   end
 
   test 'file upload' do
     sign_in @user
-    post :create,  entry: { date: Time.zone.today,
-                            note: 'Something to say',
-                            attachments_bad: fixture_file_upload('test.txt') }
+    post :create, params: { entry: { date: Time.zone.today,
+                                     note: 'Something to say',
+                                     attachments_bad: fixture_file_upload('test.txt') } }
     assert_redirected_to entries_path
     assert !assigns(:entry).attachments.nil?
   end

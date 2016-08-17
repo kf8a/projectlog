@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -68,5 +68,6 @@ gem 'dotenv-rails'
 
 group :test do
   # database_cleaner is not required, but highly recommended
+  gem 'rails-controller-testing'
   gem 'database_cleaner'
 end
