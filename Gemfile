@@ -38,6 +38,8 @@ gem 'redcarpet'
 
 gem 'kaminari-bootstrap'
 
+gem 'prometheus-client', '~> 0.6.0'
+
 # Turbolinks makes following links in your web application faster.
 # Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
