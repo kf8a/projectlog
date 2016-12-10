@@ -13,12 +13,10 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/new
-  def new
-  end
+  def new; end
 
   # GET /categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /categories
   # POST /categories.json
