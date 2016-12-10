@@ -58,8 +58,6 @@ GEM
       jquery-rails
       railties
     bcrypt (3.1.11)
-    bcrypt-ruby (3.1.5)
-      bcrypt (>= 3.1.3)
     builder (3.2.2)
     capistrano (3.6.1)
       airbrussh (>= 1.0.0)
@@ -231,7 +229,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   backbone-on-rails
-  bcrypt-ruby
+  bcrypt
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -258,4 +256,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.13.1
+   1.13.6
