@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.author = current_user.name
     if @entry.save
-      flash[:notice] = 'Entry was successfully created' if @entry.save
+      flash[:notice] = 'Entry was successfully created'
       redirect_to entries_url
     else
       render :new
