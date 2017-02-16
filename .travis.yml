@@ -1,23 +1,19 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.3.0
-
-bundler_args: --without production
-
-env:
-  DEVISE_SECRET="39bcedf487fe83bd4637dbaf5d738db0ce2a004e4ece7a5896b265e49101cce2fd0b73c8c95629c5d05e6c1f3869597d113bd11ce7f2bc372789235274061845"
+- 2.3.0
+bundler_args: "--without production"
+env: DEVISE_SECRET="39bcedf487fe83bd4637dbaf5d738db0ce2a004e4ece7a5896b265e49101cce2fd0b73c8c95629c5d05e6c1f3869597d113bd11ce7f2bc372789235274061845"
   DEVISE_PEPPER="39bcedf487fe83ba4637dbaf5d338db0ce2a004e4e3e7a5896b265e49101ccc2fd0b73c8c9562fc5d05e6c1f3869597d113bd11ce7f2bc372789235274091845"
   APP_SECRET="39bcedf487fe83bd4637dbaf5d738db0ce2a004e4ece7a5896b265e49101cce2fd0b73c8c95629c5d05e6c1f3869597d113bd11ce7f2bc372789235274061845"
-
 addons:
-  postgresql: "9.4"
-
+  postgresql: '9.4'
 script:
-  - bundle exec rake db:test:prepare
-  - bundle exec rake test
-
+- bundle exec rake db:test:prepare
+- bundle exec rake test
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.travis.yml config/database.yml
-
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.travis.yml config/database.yml
+notifications:
+  slack:
+    secure: fSu9s3rvKcpmxoDeLfWf/U6nt5mQqPctsIyG0J5hznZkLHPD5mlyo/ahOFxwclSOZFkx+k9GKGHscq7JNoQvsZ7kIPx7ImAMm4yOLT9VOCpgI+Hvi91hQFO4KqE2uUGh8tugeQKsS3nge0bE8Y4ycabzIwfxtJ4TWLSfwNRKvTU=
