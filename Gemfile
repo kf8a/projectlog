@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -11,7 +11,7 @@ gem 'textacular'
 
 gem 'acts-as-taggable-on'
 
-gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'carrierwave' #, git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
 gem 'backbone-on-rails'
 
@@ -64,6 +64,9 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails'
+  gem 'rbnacl', '< 5.0'
+  gem 'rbnacl-libsodium'
+  gem 'bcrypt_pbkdf'
 end
 
 gem 'dotenv-rails'
