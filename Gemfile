@@ -11,7 +11,7 @@ gem 'textacular'
 
 gem 'acts-as-taggable-on'
 
-gem 'carrierwave' #, git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'carrierwave' # , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
 gem 'backbone-on-rails'
 
@@ -60,19 +60,20 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 group :development do
+  gem 'bcrypt_pbkdf'
   gem 'capistrano'
   gem 'capistrano-bundler'
-  gem 'capistrano3-unicorn'
   gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
   gem 'rbnacl', '< 5.0'
   gem 'rbnacl-libsodium'
-  gem 'bcrypt_pbkdf'
 end
 
 gem 'dotenv-rails'
 
 group :test do
   # database_cleaner is not required, but highly recommended
-  gem 'rails-controller-testing'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
