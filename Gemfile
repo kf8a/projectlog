@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 5.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -9,7 +9,7 @@ gem 'pg'
 # full text search on postgresql
 gem 'textacular'
 
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'carrierwave' # , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
