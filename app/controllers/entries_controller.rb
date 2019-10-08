@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
-    @entry.update_attributes(entry_params)
+    @entry.update(entry_params)
     if @entry.save
       redirect_to entries_url
     else
