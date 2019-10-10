@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0'
+gem 'rails', '~>6'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'sprockets', '~>3.0', require: false
+
 # full text search on postgresql
 gem 'textacular'
 
-gem 'acts-as-taggable-on' #, '~> 6.0'
+gem 'acts-as-taggable-on', git: 'https://github.com/mbleigh/acts-as-taggable-on.git', branch: 'release6.5' #, '~> 6.0'
 
 gem 'carrierwave' # , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
@@ -55,17 +57,17 @@ gem 'bcrypt'
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
 group :development do
   gem 'bcrypt_pbkdf'
+  # Use Capistrano for deployment
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'ed25519'
+  gem 'listen'
   gem 'rbnacl'
   gem 'rbnacl-libsodium'
-  gem 'listen'
 end
 
 gem 'dotenv-rails'
