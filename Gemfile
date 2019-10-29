@@ -11,7 +11,7 @@ gem 'sprockets', '~>3.0', require: false
 # full text search on postgresql
 gem 'textacular'
 
-gem 'acts-as-taggable-on', git: 'https://github.com/mbleigh/acts-as-taggable-on.git', branch: 'release6.5' #, '~> 6.0'
+gem 'acts-as-taggable-on' #, git: 'https://github.com/mbleigh/acts-as-taggable-on.git', branch: 'release6.5' #, '~> 6.0'
 
 gem 'carrierwave' # , git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 
