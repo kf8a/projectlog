@@ -12,6 +12,10 @@ class EntriesController < ApplicationController
     @entry.date = Time.zone.today
   end
 
+  def show
+    @entry = Entry.find(params[:id])
+  end
+
   def create
     @entry = Entry.new(entry_params)
     @entry.author = current_user.name
