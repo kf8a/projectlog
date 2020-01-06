@@ -1,6 +1,6 @@
 # show log entries to the user
 class EntriesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :tag, :tag_cloud]
+  before_action :authenticate_user!, except: %i[index tag tag_cloud]
 
   def index
     @entries = Entry.text_search(params[:query])
