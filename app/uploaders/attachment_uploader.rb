@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # Attachement Uploaded uploads attachments
 class AttachmentUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
