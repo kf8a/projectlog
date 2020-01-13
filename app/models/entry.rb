@@ -1,7 +1,7 @@
 require 'textacular/searchable'
 
 # an entry in the log usually just text
-class Entry < ActiveRecord::Base
+class Entry < ApplicationRecord
   acts_as_taggable_on :categories
 
   validates :note, :date, :author, presence: true
