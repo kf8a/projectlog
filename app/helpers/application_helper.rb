@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # helper functions for the application view
 module ApplicationHelper
   def markdown(content)

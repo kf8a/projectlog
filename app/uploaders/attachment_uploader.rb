@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Attachement Uploaded uploads attachments
 class AttachmentUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:

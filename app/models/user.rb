@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # A user that can log on
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

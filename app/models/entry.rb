@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'textacular/searchable'
 
 # an entry in the log usually just text

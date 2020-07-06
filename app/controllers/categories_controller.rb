@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # show and edit categories
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: %i[show]

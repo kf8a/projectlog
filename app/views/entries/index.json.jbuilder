@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.entries @entries do |entry|
   json.id entry.id
   json.date entry.date
