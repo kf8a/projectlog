@@ -11,9 +11,7 @@ require 'minitest/mock'
 # Uncomment for awesome colorful output
 require 'minitest/pride'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in
-  # alphabetical order.
+class ActiveSupport::TestCase # alphabetical order. # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in
   fixtures :all
 
   # Add more helper methods to be used by all tests here...

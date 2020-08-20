@@ -5,11 +5,10 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!, except: %i[index tag tag_cloud]
 
   def index
-    @entries = Entry.text_search(params[:query])
-                    .order('date desc')
-                    .order('updated_at desc')
-                    .page(params[:page])
-                    .per(300)
+    @entries =
+      Entry.text_search(params[:query]).order('date desc').order(
+        'updated_at desc'
+      ).page(params[:page]).per(300)
     @entry = Entry.new
     @entry.date = Time.zone.today
   end
@@ -50,11 +49,9 @@ class EntriesController < ApplicationController
   end
 
   def tag
-    @entries = Entry.tagged_with(params[:id])
-                    .order('date desc')
-                    .order('updated_at desc')
-                    .page(params[:page])
-                    .per(200)
+    @entries =
+      Entry.tagged_with(params[:id]).order('date desc').order('updated_at desc')
+        .page(params[:page]).per(200)
     @entry = Entry.new
     @entry.date = Time.zone.today
     render :index
@@ -63,8 +60,10 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:date, :note,
-                                  category_list: [],
-                                  attachments: [])
+    params.require(:entry).permit(
+      :date,
+      :note,
+      category_list: [], attachments: []
+    )
   end
 end

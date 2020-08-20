@@ -4,12 +4,16 @@ class EntriesControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
 
   def setup
-    @user = User.create(email: 'test@google.com',
-                        name: 'tester',
-                        password: 'a really long password')
-    @entry = Entry.create(date: Time.zone.today,
-                          note: 'something important',
-                          author: @user)
+    @user =
+      User.create(
+        email: 'test@google.com',
+        name: 'tester',
+        password: 'a really long password'
+      )
+    @entry =
+      Entry.create(
+        date: Time.zone.today, note: 'something important', author: @user
+      )
   end
 
   def teardown
@@ -44,7 +48,8 @@ class EntriesControllerTest < ActionController::TestCase
 
   test 'authenticated should get create' do
     sign_in @user
-    post :create, params: { entry: { date: Time.zone.today, note: 'Something to say' } }
+    post :create,
+         params: { entry: { date: Time.zone.today, note: 'Something to say' } }
     assert_redirected_to entries_path
   end
 
@@ -68,9 +73,14 @@ class EntriesControllerTest < ActionController::TestCase
 
   test 'file upload' do
     sign_in @user
-    post :create, params: { entry: { date: Time.zone.today,
-                                     note: 'Something to say',
-                                     attachments_bad: fixture_file_upload('test.txt') } }
+    post :create,
+         params: {
+           entry: {
+             date: Time.zone.today,
+             note: 'Something to say',
+             attachments_bad: fixture_file_upload('test.txt')
+           }
+         }
     assert_redirected_to entries_path
     assert !assigns(:entry).attachments.nil?
   end

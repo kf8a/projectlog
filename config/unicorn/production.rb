@@ -4,7 +4,6 @@ worker_processes 5
 working_directory "#{app_root}/current"
 preload_app true
 timeout 300
-# listen 4600
 listen "#{app_root}/shared/sockets/unicorn.sock", backlog: 2048
 
 pid "#{app_root}/shared/pids/unicorn.pid"
@@ -28,7 +27,8 @@ end
 
 after_fork do |_server, _worker|
   # set process title to application name and git revision
-  revision_file = "#{Rails.root}/REVISION"
+  revision_file =
+    "#{Rails.root}/REVISION"
   if ENV['RAILS_ENV'] != 'development' && File.exist?(revision_file)
     ENV['UNICORN_PROCTITLE'] = 'unicorn ' + File.read(revision_file)[0, 6]
     $0 = ENV['UNICORN_PROCTITLE']
@@ -38,6 +38,4 @@ after_fork do |_server, _worker|
   ActiveRecord::Base.establish_connection
 end
 
-before_exec do |_server|
-  Dir.chdir("#{app_root}/current")
-end
+before_exec { |_server| Dir.chdir("#{app_root}/current") } # listen 4600

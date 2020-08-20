@@ -8,10 +8,10 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @entries = Entry.tagged_with(params[:id]).text_search(params[:query])
-                    .order('date desc'). order('created_at desc')
-                    .page(params[:page])
-                    .per(200)
+    @entries =
+      Entry.tagged_with(params[:id]).text_search(params[:query]).order(
+        'date desc'
+      ).order('created_at desc').page(params[:page]).per(200)
   end
 
   # GET /categories/new
@@ -27,7 +27,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html do
+          redirect_to @category, notice: 'Category was successfully created.'
+        end
       else
         format.html { redirect_to 'new' }
       end
@@ -39,7 +41,9 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html do
+          redirect_to @category, notice: 'Category was successfully updated.'
+        end
       else
         format.html { render action: 'edit' }
       end
@@ -50,17 +54,13 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url }
-    end
+    respond_to { |format| format.html { redirect_to categories_url } }
   end
 
   def tag
-    @entries = Entry.tagged_with(params[:id])
-                    .order('date desc')
-                    .order('updated_at desc')
-                    .page(params[:page])
-                    .per(200)
+    @entries =
+      Entry.tagged_with(params[:id]).order('date desc').order('updated_at desc')
+        .page(params[:page]).per(200)
     render :index
   end
 
