@@ -56,8 +56,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
-# Use unicorn as the app server
-gem 'unicorn'
+# Use puma as the app server
+# gem 'unicorn'
+gem 'puma'
 
 group :development do
   gem 'bcrypt_pbkdf'
