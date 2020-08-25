@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~>6'
-
-gem 'prettier'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -64,7 +64,7 @@ group :development do
   gem 'bcrypt_pbkdf'
   # Use Capistrano for deployment
   gem 'capistrano'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-puma'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'ed25519'
