@@ -63,13 +63,17 @@ group :development do
   gem 'bcrypt_pbkdf'
   # Use Capistrano for deployment
   gem 'capistrano'
+  gem 'capistrano3-unicorn'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'listen'
+  gem 'prettier'
   gem 'rbnacl'
   gem 'rbnacl-libsodium'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+  gem 'rubocop-thread_safety'
 end
 
 gem 'dotenv-rails'

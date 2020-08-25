@@ -3,11 +3,11 @@
 # helper functions for the application view
 module ApplicationHelper
   def markdown(content)
-    @markdown ||=
+    markdown ||=
       Redcarpet::Markdown.new(
         Redcarpet::Render::HTML,
         autolink: true, space_after_headers: true, fenced_code_blocks: true
       )
-    @markdown.render(content || ' ')
+    markdown.render(content || ' ')
   end
 end
