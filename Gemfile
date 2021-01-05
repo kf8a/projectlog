@@ -61,7 +61,6 @@ gem 'bcrypt'
 gem 'puma'
 
 gem 'webpacker'
-gem 'yarn'
 
 group :development do
   gem 'bcrypt_pbkdf'
