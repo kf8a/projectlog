@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     @entries =
       Entry.tagged_with(params[:id]).text_search(params[:query]).order(
         'date desc'
-      ).order('created_at desc').page(params[:page]).per(200)
+      ).order('entries.created_at desc').page(params[:page]).per(200)
   end
 
   # GET /categories/new

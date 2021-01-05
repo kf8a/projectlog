@@ -60,6 +60,8 @@ gem 'bcrypt'
 # gem 'unicorn'
 gem 'puma'
 
+gem 'webpacker'
+
 group :development do
   gem 'bcrypt_pbkdf'
   # Use Capistrano for deployment
