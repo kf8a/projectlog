@@ -22,3 +22,4 @@ public/uploads/
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+yarn.lock
