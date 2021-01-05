@@ -60,7 +60,7 @@ gem 'bcrypt'
 # gem 'unicorn'
 gem 'puma'
 
-gem 'webpacker'
+gem 'webpacker', '~> 5.0'
 
 group :development do
   gem 'bcrypt_pbkdf'

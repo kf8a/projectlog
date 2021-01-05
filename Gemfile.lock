@@ -350,7 +350,7 @@ DEPENDENCIES
   therubyracer
   turbolinks
   uglifier
-  webpacker
+  webpacker (~> 5.0)
 
 BUNDLED WITH
    2.2.3
