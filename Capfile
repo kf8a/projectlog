@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A meeting abstract
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 
@@ -26,7 +29,8 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 
-# require 'capistrano3/unicorn'
+install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Systemd
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
