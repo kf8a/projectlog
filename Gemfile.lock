@@ -147,9 +147,6 @@ GEM
     kaminari-activerecord (1.2.1)
       activerecord
       kaminari-core (= 1.2.1)
-    kaminari-bootstrap (3.0.1)
-      kaminari (>= 0.13.0)
-      rails
     kaminari-core (1.2.1)
     libv8 (3.16.14.19)
     listen (3.4.0)
@@ -329,7 +326,7 @@ DEPENDENCIES
   ed25519
   jbuilder
   jquery-rails
-  kaminari-bootstrap
+  kaminari
   listen
   pg
   prettier
@@ -346,7 +343,7 @@ DEPENDENCIES
   sass-rails
   sdoc
   sprockets (~> 3.0)
-  textacular
+  textacular (~> 5.0)
   therubyracer
   turbolinks
   uglifier

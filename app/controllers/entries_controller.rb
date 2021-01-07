@@ -6,9 +6,7 @@ class EntriesController < ApplicationController
 
   def index
     @entries =
-      Entry.text_search(params[:query]).order('date desc').order(
-        'updated_at desc'
-      ).page(params[:page]).per(300)
+      Entry.text_search(params[:query]).order("created_at DESC").page(params[:page]).per(300)
     @entry = Entry.new
     @entry.date = Time.zone.today
   end

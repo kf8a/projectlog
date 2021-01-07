@@ -11,7 +11,7 @@ gem 'pg'
 gem 'sprockets', '~>3.0', require: false
 
 # full text search on postgresql
-gem 'textacular'
+gem 'textacular', '~> 5.0'
 
 gem 'acts-as-taggable-on'
 
@@ -37,7 +37,8 @@ gem 'devise'
 # use markdown
 gem 'redcarpet'
 
-gem 'kaminari-bootstrap'
+# gem 'kaminari-bootstrap'
+gem 'kaminari'
 
 gem 'prometheus-client', '~> 0.6.0'
 
