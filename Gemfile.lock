@@ -67,11 +67,6 @@ GEM
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
-    backbone-on-rails (1.2.0.0)
-      eco
-      ejs
-      jquery-rails
-      railties
     bcrypt (3.1.16)
     bcrypt_pbkdf (1.1.0)
     builder (3.2.4)
@@ -97,10 +92,6 @@ GEM
       marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     database_cleaner (2.0.1)
@@ -119,13 +110,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    eco (1.0.0)
-      coffee-script
-      eco-source
-      execjs
-    eco-source (1.1.0.rc.1)
     ed25519 (1.2.4)
-    ejs (1.1.1)
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.1)
@@ -317,7 +302,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  backbone-on-rails
   bcrypt
   bcrypt_pbkdf
   capistrano
@@ -355,4 +339,4 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 BUNDLED WITH
-   2.2.3
+   2.2.26
