@@ -17,8 +17,6 @@ gem 'acts-as-taggable-on'
 
 gem 'carrierwave'
 
-#gem 'backbone-on-rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
